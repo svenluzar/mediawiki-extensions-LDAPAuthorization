@@ -108,9 +108,9 @@ class PluggableAuthUserAuthorization {
 		if ( !class_exists( '\MediaWiki\Extension\LDAPAuthentication2\PluggableAuth' ) ) {
 			return false;
 		}
-		if ( method_exists( MediaWikiServices::class, 'getAuthManager' ) ) {
+		if ( method_exists( \MediaWiki\MediaWikiServices::class, 'getAuthManager' ) ) {
 			// MediaWiki 1.35+
-			$authManager = MediaWikiServices::getInstance()->getAuthManager();
+			$authManager = \MediaWiki\MediaWikiServices::getInstance()->getAuthManager();
 		} else {
 			$authManager = AuthManager::singleton();
 		}
